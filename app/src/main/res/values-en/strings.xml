@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MelkovHw92</string>
+    <string name="change_theme">change theme</string>
+    <string name="language">language</string>
+    <string name="example">Jackdaws love my big sphinx of quartz</string>
+    <string-array name="languages">
+        <item>English</item>
+        <item>Russian</item>
+    </string-array>
+    <string-array name="dimensions">
+        <item>Small</item>
+        <item>Normal</item>
+        <item>Large</item>
+    </string-array>
+</resources>
