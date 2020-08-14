@@ -12,16 +12,16 @@ public class Utils
     public static int getTheme() {
         return sTheme;
     }
-    private static int sTheme = R.style.AppThemeBlack;
+    private static int sTheme = R.style.Normal;
 
     public static Locale getLocale() {
         return sLocale;
     }
     private static Locale sLocale = new Locale("en");
 
-    public final static int THEME_BLACK = 0;
-    public final static int THEME_GREEN = 1;
-    public final static int THEME_BLUE = 2;
+    public final static int SIZE_SMALL = 0;
+    public final static int SIZE_NORMAL = 1;
+    public final static int SIZE_LARGE = 2;
 
 
     /** Set the theme of the Activity, and restart it by creating a new Activity of the same type. */
@@ -35,7 +35,6 @@ public class Utils
             config.setLocale(locale);
 
             activity.getResources().updateConfiguration(config, activity.getBaseContext().getResources().getDisplayMetrics());
-            //activity.recreate();
         }
 
         activity.finish();
@@ -48,14 +47,14 @@ public class Utils
         switch (sTheme)
         {
             default:
-            case THEME_BLACK:
-                activity.setTheme(R.style.AppThemeBlack);
+            case SIZE_SMALL:
+                activity.setTheme(R.style.Small);
                 break;
-            case THEME_GREEN:
-                activity.setTheme(R.style.AppThemeGreen);
+            case SIZE_NORMAL:
+                activity.setTheme(R.style.Normal);
                 break;
-            case THEME_BLUE:
-                activity.setTheme(R.style.AppThemeBlue);
+            case SIZE_LARGE:
+                activity.setTheme(R.style.Large);
                 break;
         }
     }

@@ -12,7 +12,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner mLanguagesSpinner;
-    private Spinner mStylesSpinner;
+    private Spinner mDimensionsSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         mLanguagesSpinner = findViewById(R.id.spinner_language);
-        mStylesSpinner = findViewById(R.id.spinner_style);
+        mDimensionsSpinner = findViewById(R.id.spinner_dimensions);
 
-        Button btnChange = findViewById(R.id.button_change_language);
+        Button btnChange = findViewById(R.id.button_change);
         btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,16 +44,16 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                /* set style */
-                switch(mStylesSpinner.getSelectedItemPosition()) {
+                /* set dimensions */
+                switch(mDimensionsSpinner.getSelectedItemPosition()) {
                     case 0:
-                        Utils.changeUI(MainActivity.this, Utils.THEME_BLACK, locale);
+                        Utils.changeUI(MainActivity.this, Utils.SIZE_SMALL, locale);
                         break;
                     case 1:
-                        Utils.changeUI(MainActivity.this, Utils.THEME_GREEN, locale);
+                        Utils.changeUI(MainActivity.this, Utils.SIZE_NORMAL, locale);
                         break;
                     case 2:
-                        Utils.changeUI(MainActivity.this, Utils.THEME_BLUE, locale);
+                        Utils.changeUI(MainActivity.this, Utils.SIZE_LARGE, locale);
                 }
             }
         });
@@ -69,11 +69,11 @@ public class MainActivity extends AppCompatActivity {
             mLanguagesSpinner.setSelection(1);
         }
 
-        ArrayAdapter<CharSequence> adapterStyles = ArrayAdapter.createFromResource(this, R.array.styles, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapterStyles = ArrayAdapter.createFromResource(this, R.array.dimensions, android.R.layout.simple_spinner_item);
         adapterStyles.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mStylesSpinner.setAdapter(adapterStyles);
+        mDimensionsSpinner.setAdapter(adapterStyles);
         if(Utils.getTheme() < adapterStyles.getCount()) {
-            mStylesSpinner.setSelection(Utils.getTheme());
+            mDimensionsSpinner.setSelection(Utils.getTheme());
         }
     }
 }
